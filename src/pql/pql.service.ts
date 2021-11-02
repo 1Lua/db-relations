@@ -4,6 +4,7 @@ import { Repository } from 'typeorm'
 
 import { GroupEntity } from './entities/group.entity'
 import { JokeEntity } from './entities/joke.entity'
+import { LevelEntity } from './entities/level.entity'
 import { RoleEntity } from './entities/role.entity'
 import { StatusEntity } from './entities/status.entity'
 import { UserInGroupEntity } from './entities/user-in-group.entity'
@@ -24,6 +25,8 @@ export class PqlService {
         private readonly _jokesRepository: Repository<JokeEntity>,
         @InjectRepository(UserInGroupEntity)
         private readonly _userInGroupRepository: Repository<UserInGroupEntity>,
+        @InjectRepository(LevelEntity)
+        private readonly _levelRepository: Repository<LevelEntity>,
     ) {}
 
     async createManyUsers(count: number): Promise<void> {
@@ -80,6 +83,12 @@ export class PqlService {
             shortname: 'memes',
         })
         await this._groupsRepository.save(group)
+
+        const level = this._levelRepository.create({
+            name: 'high',
+            group,
+        })
+        await this._levelRepository.save(level)
 
         const userInGroup = this._userInGroupRepository.create({
             createdAt: Date.now(),

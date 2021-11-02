@@ -1,5 +1,12 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+import {
+    Column,
+    Entity,
+    OneToMany,
+    OneToOne,
+    PrimaryGeneratedColumn,
+} from 'typeorm'
 
+import { LevelEntity } from './level.entity'
 import { UserInGroupEntity } from './user-in-group.entity'
 
 export const GROUP_TABLE_NAME = 'groups'
@@ -14,6 +21,9 @@ export class GroupEntity {
 
     @Column({ type: String })
     shortname: string
+
+    @OneToOne(() => LevelEntity, (level) => level.group)
+    level: LevelEntity
 
     @OneToMany(() => UserInGroupEntity, (userInGroup) => userInGroup.group)
     userInGroup: UserInGroupEntity[]
