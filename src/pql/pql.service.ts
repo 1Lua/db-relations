@@ -99,6 +99,12 @@ export class PqlService {
         await this._userInGroupRepository.save(userInGroup)
     }
 
+    async getAllUsers(): Promise<UserEntity[]> {
+        return await this._usersRepository.find({
+            relations: ['jokes', 'role', 'status', 'userInGroup'],
+        })
+    }
+
     /*
     async getUser(): Promise<any> {
         return await this._usersRepository.findOne({}, {
