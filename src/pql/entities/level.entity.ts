@@ -21,7 +21,9 @@ export class LevelEntity {
     @Column({ type: 'uuid' })
     groupId: string
 
-    @OneToOne(() => GroupEntity, (group) => group.level)
+    @OneToOne(() => GroupEntity, (group) => group.level, {
+        onDelete: 'CASCADE',
+    })
     @JoinColumn()
     group: GroupEntity
 }
