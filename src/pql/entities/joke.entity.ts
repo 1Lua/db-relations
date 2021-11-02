@@ -24,9 +24,9 @@ export class JokeEntity {
     @Column({ type: 'int' })
     viev: number
 
-    @Column({ type: String })
+    @Column({ type: 'uuid', nullable: true })
     userId: string
 
-    @ManyToOne(() => UserEntity, (user) => user.jokes)
+    @ManyToOne(() => UserEntity, (user) => user.jokes, { onDelete: 'CASCADE' })
     user: UserEntity
 }

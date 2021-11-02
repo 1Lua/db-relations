@@ -16,15 +16,19 @@ export class UserInGroupEntity {
     @Column({ type: String, nullable: true })
     deletedAt: Date
 
-    @Column({ type: String })
+    @Column({ type: 'uuid' })
     userId: string
 
-    @ManyToOne(() => UserEntity, (user) => user.userInGroup)
+    @ManyToOne(() => UserEntity, (user) => user.userInGroup, {
+        onDelete: 'CASCADE',
+    })
     user: UserEntity
 
-    @Column({ type: String })
+    @Column({ type: 'uuid' })
     groupId: string
 
-    @ManyToOne(() => GroupEntity, (group) => group.userInGroup)
+    @ManyToOne(() => GroupEntity, (group) => group.userInGroup, {
+        onDelete: 'CASCADE',
+    })
     group: GroupEntity
 }

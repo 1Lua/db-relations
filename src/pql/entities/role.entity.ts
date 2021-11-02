@@ -18,10 +18,10 @@ export class RoleEntity {
     @Column({ type: String })
     name: string
 
-    @Column({ type: String })
+    @Column({ type: 'uuid' })
     userId: string
 
-    @OneToOne(() => UserEntity, (user) => user.role)
+    @OneToOne(() => UserEntity, (user) => user.role, { onDelete: 'CASCADE' })
     @JoinColumn()
     user: UserEntity
 }

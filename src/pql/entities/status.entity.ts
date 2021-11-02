@@ -18,7 +18,10 @@ export class StatusEntity {
     @Column({ type: String })
     name: string
 
-    @OneToOne(() => UserEntity, (user) => user.status)
+    @Column({ type: 'uuid' })
+    userId: string
+
+    @OneToOne(() => UserEntity, (user) => user.status, { onDelete: 'CASCADE' })
     @JoinColumn()
     user: UserEntity
 }
