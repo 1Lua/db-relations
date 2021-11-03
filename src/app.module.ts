@@ -4,7 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 
 import { config } from './config/config'
 import { mongooseConfig } from './config/mongoose.config'
-import { MongoModule } from './mongo/mongo.app'
+import { MongoModule } from './mongo/mongo.module'
 
 @Module({
     imports: [
