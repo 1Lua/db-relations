@@ -1,52 +1,50 @@
-# NestJS boilerplate application
+## Description
 
-## Branches
-- [master](https://github.com/i-link-pro-team/nestjs-boilerplate/tree/master): Only NestJS
-- **[typeorm+postgres](https://github.com/i-link-pro-team/nestjs-boilerplate/tree/typeorm+postgres): NestJS + PostgreSQL + TypeORM**
-- [mongoose+mongo](https://github.com/i-link-pro-team/nestjs-boilerplate/tree/mongoose+mongo): NestJS + MongoDB + Mongoose
-
-## Features
-* Node v14.17.1
-* [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3/)
-* ESLint
-* Launch scripts (prebuild, build, start, test, etc.)
-* Precommit prettier
-* VSCode debug launcher
-* Strict ruled tsconfig.json
-* Migrations
-* Docker compose with postgres
+This is the implementation of a database schema using typeorm & postrges.
 
 ## Installation
 
-```bash
-$ npm install
-```
-
-## Running the app
+Run next commands:
 
 ```bash
-# if your default nodeJS version is not v14.17.1
-$ nvm use 
+git clone https://https://github.com/1Lua/db-relations -b typeorm+postgres
 
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Test
+Also you need create .env file consists information like .env.example and launch PostgreSQL DB it youself
+
+## Tests
+
+This have a configured test file: pql.module.spec.ts
+
+The test creates a specified number of entities (1 by default), allows you to measure the speed of writing and reading data
+
+For launch test run next command:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+CREATE_USER_COUNT=10 npm run test:pql
 ```
+
+## Details
+
+It is possible to get data about users with relationships:
+<p align="center">
+<a href="https://ibb.co/k6g5HyW"><img src="https://i.ibb.co/84DNKBS/Screenshot-from-2021-11-04-17-06-51.png" alt="Screenshot-from-2021-11-04-17-06-51" border="0"></a>
+</p>
+
+This example of function, which returns user Entity. Example of returned user:
+<p align="center">
+<a href="https://ibb.co/f9jv32B"><img src="https://i.ibb.co/dt8gNr1/Screenshot-from-2021-11-02-18-58-42.png" alt="Screenshot-from-2021-11-02-18-58-42" border="0"></a>
+</p>
+
+## Test results
+
+Test results when creating a different number of entities
+
+<p align="center">
+<a href="https://ibb.co/1KpLLpH"><img src="https://i.ibb.co/sQD22DL/Screenshot-from-2021-11-03-23-32-03.png" alt="Screenshot-from-2021-11-03-23-32-03" border="0"></a>
+<a href="https://ibb.co/zFqtwmK"><img src="https://i.ibb.co/NrcGzFw/Screenshot-from-2021-11-03-23-33-03.png" alt="Screenshot-from-2021-11-03-23-33-03" border="0"></a>
+<a href="https://ibb.co/XjhPCGT"><img src="https://i.ibb.co/5GN3RJV/Screenshot-from-2021-11-04-17-19-15.png" alt="Screenshot-from-2021-11-04-17-19-15" border="0"></a>
+<a href="https://ibb.co/rygXwKH"><img src="https://i.ibb.co/cTPsrKQ/Screenshot-from-2021-11-03-23-35-05.png" alt="Screenshot-from-2021-11-03-23-35-05" border="0"></a>
+</p>
