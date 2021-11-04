@@ -1,50 +1,25 @@
-# NestJS boilerplate application
+## Description
 
-## Branches
-- **[master](https://github.com/i-link-pro-team/nestjs-boilerplate/tree/master): Only NestJS**
-- [typeorm+postgres](https://github.com/i-link-pro-team/nestjs-boilerplate/tree/typeorm+postgres): NestJS + PostgreSQL + TypeORM
-- [mongoose+mongo](https://github.com/i-link-pro-team/nestjs-boilerplate/tree/mongoose+mongo): NestJS + MongoDB + Mongoose
+This repository contains branches where the database schema was implemented:
+- [typeorm+postgres](https://github.com/1Lua/db-relations/tree/typeorm+postgres): implement with TypeORM & Posgre
+- [mongoose+mongo](https://github.com/1Lua/db-relations/tree/mongoose+mongo): implement wirh Mongoose & Mongo
 
-## Features
-* Node v14.17.1
-* [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3/)
-* ESLint
-* Launch scripts (prebuild, build, start, test, etc.)
-* Precommit prettier
-* VSCode debug launcher
-* Strict ruled tsconfig.json
+## Tests
 
-## Installation
+For tests creates the following entities:
+- One User
+- One Status belonging to the User
+- Two Jokes belonging to the User
+- One Role belonging to the User
+- One Group that the user belongs to
+- One Level belonging to the Group
 
-```bash
-$ npm install
-```
+## Result
+Performance comparison
 
-## Running the app
+<p align="center">
+<a href="https://ibb.co/SVBN6Yb"><img src="https://i.ibb.co/2cdqFVx/Screenshot-from-2021-11-04-18-00-12.png" alt="Screenshot-from-2021-11-04-18-00-12" border="0"></a>
+</p>
 
-```bash
-# if your default nodeJS version is not v14.17.1
-$ nvm use 
-
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
+## P.S. 
+Извиняюсь за нейминг
