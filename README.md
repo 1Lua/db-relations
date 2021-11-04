@@ -1,51 +1,51 @@
-# NestJS boilerplate application
+## Description
 
-## Branches
-- [master](https://github.com/i-link-pro-team/nestjs-boilerplate/tree/master): Only NestJS
-- [typeorm+postgres](https://github.com/i-link-pro-team/nestjs-boilerplate/tree/typeorm+postgres): NestJS + PostgreSQL + TypeORM
-- **[mongoose+mongo](https://github.com/i-link-pro-team/nestjs-boilerplate/tree/mongoose+mongo): NestJS + MongoDB + Mongoose**
-
-## Features
-* Node v14.17.1
-* [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.3/)
-* ESLint
-* Launch scripts (prebuild, build, start, test, etc.)
-* Precommit prettier
-* VSCode debug launcher
-* Strict ruled tsconfig.json
-* MongoDB & Mongoose
+This is the implementation of a database schema using Mongoose & MongoDB
 
 ## Installation
 
-```bash
-$ npm install
-```
-
-## Running the app
+Run next commands:
 
 ```bash
-# if your default nodeJS version is not v14.17.1
-$ nvm use 
+git clone https://https://github.com/1Lua/db-relations -b mongoose+mongo
 
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install
 ```
 
-## Test
+Also you need create .env file consists information like .env.example and launch MongoDB server it youself
+
+## Tests
+
+This have a configured test file: mongo.service.spec.ts
+
+The test creates a specified number of entities (1 by default), allows you to measure the speed of writing and reading data
+
+For launch test run next command:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+CREATE_USER_COUNT=10 npm run test:mongo
 ```
+
+## Details
+
+It is possible to get data about users with relationships:
+<p align="center">
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/4W9WLbG/Screenshot-from-2021-11-03-21-57-28.png" alt="Screenshot-from-2021-11-03-21-57-28" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/Zzrm3ms/Screenshot-from-2021-11-03-21-57-46.png" alt="Screenshot-from-2021-11-03-21-57-46" border="0"></a>
+</p>
+
+This example of function, which returns user Entity. Example of returned user:
+<p align="center">
+<a href="https://ibb.co/pyMZPgx"><img src="https://i.ibb.co/PQP4YRN/Screenshot-from-2021-11-03-21-55-24.png" alt="Screenshot-from-2021-11-03-21-55-24" border="0"></a>
+</p>
+
+## Test results
+
+Test results when creating a different number of entities
+
+<p align="center">
+<a href="https://ibb.co/YfVVVX1"><img src="https://i.ibb.co/F8dddXy/Screenshot-from-2021-11-03-22-55-40.png" alt="Screenshot-from-2021-11-03-22-55-40" border="0"></a>
+<a href="https://ibb.co/7tJ2PDw"><img src="https://i.ibb.co/YB7pmSz/Screenshot-from-2021-11-03-22-56-36.png" alt="Screenshot-from-2021-11-03-22-56-36" border="0"></a>
+<a href="https://ibb.co/NSy3XVs"><img src="https://i.ibb.co/hfmMk7y/Screenshot-from-2021-11-03-22-57-30.png" alt="Screenshot-from-2021-11-03-22-57-30" border="0"></a>
+<a href="https://ibb.co/ydPJTx8"><img src="https://i.ibb.co/KbhHZ89/Screenshot-from-2021-11-03-23-05-09.png" alt="Screenshot-from-2021-11-03-23-05-09" border="0"></a>
+</p>
